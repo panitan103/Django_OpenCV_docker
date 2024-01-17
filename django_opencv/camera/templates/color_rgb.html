@@ -1,0 +1,95 @@
+
+{%extends 'layout.html'%}
+{% block css%}
+{%load static%}
+<link rel="stylesheet" href='{% static "css/color/rgb.css"%}'>
+
+{%endblock%}
+
+
+
+
+{% block tab-content%}
+
+<div class="body-tab">
+    
+    <button id="selection-toggle" >selecting</button>
+    <span id="selecting" >
+        <input type="checkbox" id="check-color" checked="checked" onclick="ShowImage()">
+        <label for="check-color">Color Image</label> 
+        <input type="checkbox" id="check-rgb" checked="checked" onclick="ShowImage()">
+        <label for="check-rgb">RGB Filtered</label> 
+        <input type="checkbox" id="check-pallet" checked="checked" onclick="ShowImage()">
+        <label for="check-pallet">Pallet</label> 
+        <input type="checkbox" id="check-Process" checked="checked" onclick="ShowImage()">
+        <label for="check-Process">Process</label> 
+    </span>
+
+</div>
+
+<div class="slidecontainer">
+    <button id="slider-toggle" >Range</button>
+    <span id="slider">
+        <div class="slider-content">
+            <input type="range" min="0" max="255" value="0" id="R_in">
+            <p style="color: rgb(0,0,0);">Red</p>
+            <span id="R_out">0</span>
+        </div>
+
+
+        <div class="slider-content">
+            <input type="range" min="0" max="255" value="0" id="G_in">
+            <p style="color: rgb(0,0,0);">Green</p>
+            <span id="G_out">0</span>
+        </div>
+
+
+        <div class="slider-content">
+            <input type="range" min="0" max="255" value="0" id="B_in">
+            <p style="color: rgb(0,0,0);">Blue</p>
+            <span id="B_out">0</span>
+        </div>
+
+
+        <div class="slider-content">
+            <input type="range" min="0" max="255" value="0" id="Thresh_in">
+            <p style="color: rgb(0,0,0);">Thresh</p>
+            <span id="Thresh_out" >0</span>
+        </div>
+    </span>
+
+
+</div>
+
+<div>
+    <button type="button" class="button-update">UPDATE</button>
+</div>
+{%endblock%}
+
+{% block content%}
+
+
+<div class="body-tab-content" >
+    <div class="body-tab-content-stream">
+        
+        <img src="/stream/cam_stream_color/" id="img-color">
+        <img src="/stream/cam_stream_rgb/" id="img-rgb">
+        
+    </div>
+    <div class="body-tab-content-stream">
+        <img src="/stream/cam_stream_process_rgb/" id="img-process">
+        <img src="/stream/cam_stream_pallet_rgb/" id="img-pallet">
+        
+        
+    </div>
+</div>
+
+{%endblock%}
+{% block script%}
+{%load static%}
+
+<script src="{% static "js/color/rgb.js"%}"></script>
+
+
+{%endblock%}
+

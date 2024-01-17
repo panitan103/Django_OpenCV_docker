@@ -1,0 +1,86 @@
+
+{%extends 'layout.html'%}
+{% block css%}
+{%load static%}
+<link rel="stylesheet" href='{% static "css/object/morp.css"%}'>
+
+{%endblock%}
+
+
+
+
+{% block tab-content%}
+
+<div class="body-tab">
+    
+    <button id="selection-toggle" >selecting</button>
+    <span id="selecting" >
+        <input type="checkbox" id="check-color" checked="checked" onclick="ShowImage()">
+        <label for="check-color">Color Image</label> 
+        <input type="checkbox" id="check-contour" checked="checked" onclick="ShowImage()">
+        <label for="check-contour">Contoured</label> 
+        <input type="checkbox" id="check-morph" checked="checked" onclick="ShowImage()">
+        <label for="check-morph">Morph Process</label> 
+    </span>
+
+</div>
+
+<div class="slidecontainer">
+    <button id="slider-toggle" >Range</button>
+    <span id="slider">
+        
+        <div class="slider-content">
+            <input type="range" min="1" max="255" value="30" id="Thresh_morp_in">
+            <p style="color: rgb(0,0,0);">Thresh</p>
+            <span id="Thresh_morp_out">30</span>
+        </div>
+
+
+        <div class="slider-content">
+            <input type="range" min="1" max="20" value="1" id="kern_in">
+            <p style="color: rgb(0,0,0);">Kernel</p>
+            <span id="kern_out">1</span>
+        </div>
+
+
+        <div class="slider-content">
+            <input type="range" min="1" max="20" value="1" id="iter_in">
+            <p style="color: rgb(0,0,0);">Iteration</p>
+            <span id="iter_out">1</span>
+        </div>
+    </span>
+</div>
+<div class="button-content">
+    <div class="thresh-select">
+        <button type="button" class="button-thresh">Thresh</button>
+        <button type="button" class="button-thresh-inv">Thresh Inv</button>
+    </div>
+    
+</div>
+{%endblock%}
+
+{% block content%}
+
+
+<div class="body-tab-content" >
+    <div class="body-tab-content-stream">
+        
+        <img src="/stream/cam_stream_color/" id="img-color">
+        <img src="/stream/cam_stream_morph_contour/" id="img-contour">
+        
+    </div>
+    <div class="body-tab-content-stream">
+        <img src="/stream/cam_stream_morph_process/" id="img-morph">
+        
+    </div>
+</div>
+
+{%endblock%}
+{% block script%}
+{%load static%}
+
+<script src="{% static "js/object/morp.js"%}"></script>
+
+
+{%endblock%}
+

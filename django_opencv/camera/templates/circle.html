@@ -1,0 +1,81 @@
+
+{%extends 'layout.html'%}
+{% block css%}
+{%load static%}
+<link rel="stylesheet" href='{% static "css/object/circle.css"%}'>
+
+{%endblock%}
+
+
+
+
+{% block tab-content%}
+
+<div class="body-tab">
+    
+    <button id="selection-toggle" >selecting</button>
+    <span id="selecting" >
+        <input type="checkbox" id="check-color" checked="checked" onclick="ShowImage()">
+        <label for="check-color">Color Image</label> 
+        <input type="checkbox" id="check-circle" checked="checked" onclick="ShowImage()">
+        <label for="check-circle">Circle Detector</label> 
+    </span>
+
+</div>
+
+<div class="slidecontainer">
+    <button id="slider-toggle" >Range</button>
+    <span id="slider">
+        <div class="slider-content">
+            <input type="range" min="0" max="100" value="100" id="param1_in">
+            <p style="color: rgb(0,0,0);">param1_out</p>
+            <span id="param1_out">100</span>
+        </div>
+
+
+        <div class="slider-content">
+            <input type="range" min="0" max="100" value="50" id="param2_in">
+            <p style="color: rgb(0,0,0);">param2_out</p>
+            <span id="param2_out">50</span>
+        </div>
+        <div class="slider-content">
+            <input type="range" min="0" max="200" value="0" id="minRadius_in">
+            <p style="color: rgb(0,0,0);">minRadius_out</p>
+            <span id="minRadius_out" >0</span>
+        </div>
+        <div class="slider-content">
+            <input type="range" min="0" max="200" value="100" id="maxRadius_in">
+            <p style="color: rgb(0,0,0);">maxRadius_out</p>
+            <span id="maxRadius_out" >50</span>
+        </div>
+    </span>
+
+
+</div>
+<div>
+    <button type="button" class="button-update">UPDATE</button>
+</div>
+{%endblock%}
+
+{% block content%}
+
+
+<div class="body-tab-content" >
+    <div class="body-tab-content-stream">
+        
+        <img src="/stream/cam_stream_color/" id="img-color">
+        <img src="/stream/cam_stream_circle/" id="img-circle">
+        
+    </div>
+    
+</div>
+
+{%endblock%}
+{% block script%}
+{%load static%}
+
+<script src="{% static "js/object/circle.js"%}"></script>
+
+
+{%endblock%}
+

@@ -1,0 +1,7 @@
+Django 
+whitenoise #require for staticfilt when DEBUG False. Might run python3 manage.py collectstatic before first deploy
+aiohttp #require for Django startup
+
+#opencv-python
+#opencv-python-headless #opencv for server
+opencv-contrib-python-headless 

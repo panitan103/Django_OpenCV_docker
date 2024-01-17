@@ -1,0 +1,27 @@
+.main-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 20px 0;
+}
+.main-text p{
+    text-indent: none;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+@media screen and (min-width:800px){
+   
+    .main-text p{
+        
+        font-size: 40px;
+        
+    }
+}
+@media screen and (max-width:800px){
+   
+    
+}

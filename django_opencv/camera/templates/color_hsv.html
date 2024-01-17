@@ -1,0 +1,92 @@
+
+{%extends 'layout.html'%}
+{% block css%}
+{%load static%}
+<link rel="stylesheet" href='{% static "css/color/hsv.css"%}'>
+
+{%endblock%}
+
+
+
+
+{% block tab-content%}
+
+<div class="body-tab">
+    
+    <button id="selection-toggle" >selecting</button>
+    <span id="selecting" >
+        <input type="checkbox" id="check-color" checked="checked" onclick="ShowImage()">
+        <label for="check-color">Color Image</label> 
+        <input type="checkbox" id="check-hsv" checked="checked" onclick="ShowImage()">
+        <label for="check-hsv">HSV Filtered</label> 
+        <input type="checkbox" id="check-pallet" checked="checked" onclick="ShowImage()">
+        <label for="check-pallet">Pallet</label> 
+        <input type="checkbox" id="check-process" checked="checked" onclick="ShowImage()">
+        <label for="check-process">Process</label> 
+    </span>
+
+</div>
+
+<div class="slidecontainer">
+    <button id="slider-toggle" >Range</button>
+    <span id="slider">
+        <div class="slider-content">
+            <input type="range" min="0" max="180" value="0" id="H_in">
+            <p style="color: rgb(0,0,0);">Hue</p>
+            <span id="H_out">0</span>
+        </div>
+
+
+        <div class="slider-content">
+            <input type="range" min="0" max="255" value="255" id="S_in">
+            <p style="color: rgb(0,0,0);">Saturation</p>
+            <span id="S_out">255</span>
+        </div>
+
+
+        <div class="slider-content">
+            <input type="range" min="0" max="255" value="255" id="V_in">
+            <p style="color: rgb(0,0,0);">Value</p>
+            <span id="V_out">255</span>
+        </div>
+
+
+        <div class="slider-content">
+            <input type="range" min="0" max="255" value="100" id="Thresh_in">
+            <p style="color: rgb(0,0,0);">Thresh</p>
+            <span id="Thresh_out" >100</span>
+        </div>
+    </span>
+
+
+</div>
+<div>
+    <button type="button" class="button-update">UPDATE</button>
+</div>
+{%endblock%}
+
+{% block content%}
+
+
+<div class="body-tab-content" >
+    <div class="body-tab-content-stream">
+        
+        <img src="/stream/cam_stream_color/" id="img-color">
+        <img src="/stream/cam_stream_hsv/" id="img-hsv">
+        
+    </div>
+    <div class="body-tab-content-stream">
+        <img src="/stream/cam_stream_process_hsv/" id="img-process">
+        <img src="/stream/cam_stream_pallet_hsv/" id="img-pallet">
+    </div>
+</div>
+
+{%endblock%}
+{% block script%}
+{%load static%}
+
+<script src="{% static "js/color/hsv.js"%}"></script>
+
+
+{%endblock%}
+

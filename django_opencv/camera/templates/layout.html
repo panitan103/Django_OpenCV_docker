@@ -1,0 +1,106 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+        
+        <title>OpenCV Django WEB</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+        <link rel="stylesheet" href='{% static "css/style-nav.css"%}'>
+        <link rel="stylesheet" href='{% static "css/style-side.css"%}'>
+        <link rel="stylesheet" href='{% static "css/style-body.css"%}'>
+        
+        {% block css%}
+
+
+        {%endblock%}
+        
+        
+</head>
+<body>
+    
+    <nav class="nav-bar">
+        <span class="nav-toggle" id="js-nav-toggle" >
+            <img src="{% static "image/Hamburger_white_icon.png"%}" >
+            <div class="dropdown-content" id="dropdown">
+                <a href="/">Home</a>
+                <a href="/setting">Setting</a>
+                <a href="/contact">Contact us</a>
+                
+            </div>
+            
+        </span>
+        
+        
+        <a href="/"><img src="{% static "image/OpenCV.svg"%}" class='logo-image' ></a>
+        
+        <div class="nav-tab">
+            <a href="/">Home</a>
+            <a href="/setting/">Setting</a>
+        </div>
+        <div class="nav-contact">
+            <a href="/contact">Contact us</a>
+        </div>
+
+    </nav>
+    <div class="grid-container" id="grid-container-script"> 
+        <span class="grid-sidebar" id="grid-sidebar-script">
+            <img src="{% static "image/right-arrow.png"%}" id="grid-sidebar-toggle">
+            <img src="{% static "image/left-arrow.png"%}" style="display: none " id="grid-sidebar-toggle-left">
+            <div class="grid-sidebar-detail" id="grid-sidebar-detail-script" >
+                <span class="head-list" id="head-list-script-1">
+                    <p> Image Stream</p>
+                    <div class="list-menu" id="js-list-menu-1">
+                        <a href="/image/image/">Plain image</a>
+                    </div>
+                </span>
+                
+                <span class="head-list" id="head-list-script-2">
+                    <p> Color Detection</p>
+                    <div class="list-menu" id="js-list-menu-2">
+                        <a href="/color/rgb/">RGB</a>
+                        <a href="/color/hsv/">HSV</a>
+                        
+                    </div>
+                </span>
+                <span class="head-list" id="head-list-script-3">
+                    <p> Object Detection</p>
+                    <div class="list-menu" id="js-list-menu-3">
+                        <a href="/object/line/">Line</a>
+                        <a href="/object/circle/">Cricle</a>
+                        <a href="/object/morp/">Morph</a>
+                    </div>
+                </span>
+            </div>
+        </span>
+        
+        <div class="grid-body" >
+                {%block index%}
+
+                {%endblock%}
+            
+                {% block tab-content%}
+
+
+                {%endblock%}
+            
+                {% block content%}
+
+
+                {%endblock%}
+            </div>
+            
+        </div>
+    </div>
+    <script src="{% static "js/jquery-3.6.0.min.js"%}"></script>
+    <script src="{% static "js/nav-script.js"%}"></script>
+    <script src="{% static "js/body-script.js"%}"></script>
+    <script src="{% static "js/side-script.js"%}"></script>
+    
+    {% block script%}
+
+
+    {%endblock%}
+</body>
+</html>

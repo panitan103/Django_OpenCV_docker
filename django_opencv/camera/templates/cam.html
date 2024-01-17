@@ -1,0 +1,45 @@
+
+{%extends 'layout.html'%}
+{% block css%}
+{%load static%}
+<link rel="stylesheet" href='{% static "css/cam/cam.css"%}'>
+
+{%endblock%}
+
+{% block script%}
+{%load static%}
+
+<script src="{% static "js/cam/cam.js"%}"></script>
+{%endblock%}
+
+{% block tab-content%}
+<div class="body-tab">
+    
+    <button id="selection-toggle" >selecting</button>
+    <span id="selecting" >
+        <input type="checkbox" id="check-color" checked="checked" onclick="ShowImage()">
+        <label for="check-color">Color Image</label> 
+        <input type="checkbox" id="check-gray" checked="checked" onclick="ShowImage()">
+        <label for="check-gray">Gray Image</label> 
+        
+    </span>
+
+</div>
+{%endblock%}
+
+{% block content%}
+
+
+<div class="body-tab-content" >
+    <div class="body-tab-content-stream">
+        
+        <img src="/stream/cam_stream_color/" id="img-color">
+        <img src="/stream/cam_stream_gray/" id="img-gray">
+    </div>
+    
+</div>
+
+{%endblock%}
+
+
+

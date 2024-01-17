@@ -1,0 +1,81 @@
+
+{%extends 'layout.html'%}
+{% block css%}
+{%load static%}
+<link rel="stylesheet" href='{% static "css/object/line.css"%}'>
+
+{%endblock%}
+
+
+
+
+{% block tab-content%}
+
+<div class="body-tab">
+    
+    <button id="selection-toggle" >selecting</button>
+    <span id="selecting" >
+        <input type="checkbox" id="check-color" checked="checked" onclick="ShowImage()">
+        <label for="check-color">Color Image</label> 
+        <input type="checkbox" id="check-Line" checked="checked" onclick="ShowImage()">
+        <label for="check-Line">Line detect</label> 
+        <input type="checkbox" id="check-Line-process" checked="checked" onclick="ShowImage()">
+        <label for="check-Line-process">Line process</label> 
+        
+    </span>
+
+</div>
+
+<div class="slidecontainer">
+    <button id="slider-toggle" >Range</button>
+    <span id="slider">
+        
+        <div class="slider-content">
+            <input type="range" min="1" max="80" value="40" id="thresh_a_in">
+            <p style="color: rgb(0,0,0);">Thresh A</p>
+            <span id="Thresh_a_out">40</span>
+        </div>
+
+
+        <div class="slider-content">
+            <input type="range" min="1" max="80" value="40" id="thresh_b_in">
+            <p style="color: rgb(0,0,0);">Thresh B</p>
+            <span id="thresh_b_out">40</span>
+        </div>
+    </span>
+</div>
+<div class="button-content">
+    <div class="thresh-select">
+        <button type="button" class="button-upadte">UPDATE</button>
+        
+    </div>
+    
+</div>
+{%endblock%}
+
+{% block content%}
+
+
+<div class="body-tab-content" >
+    <div class="body-tab-content-stream">
+        
+        <img src="/stream/cam_stream_color/" id="img-color">
+        <img src="/stream/cam_stream_line/" id="img-line">
+        
+    </div>
+    <div class="body-tab-content-stream">
+        
+        <img src="/stream/cam_stream_line_process/" id="img-line-process">
+    </div>
+    
+</div>
+
+{%endblock%}
+{% block script%}
+{%load static%}
+
+<script src="{% static "js/object/line.js"%}"></script>
+
+
+{%endblock%}
+
